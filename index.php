@@ -14,7 +14,7 @@ $dictionary = [
     '1','2','3','4','5','6','7','8','9','0',
 
     '~','!','@','#','$','%','^','&','*','(',')','_','+',
-    ',','.',':',';','?','[',']','<','>','{','}'
+    ',','.',':',';','?','[',']','<','>','-','='
 ];
 
 $options = getopt('', ['s1:','s2:']);
@@ -30,22 +30,20 @@ $password = [];
 $secret1 = str_split(hash('sha256', $secret1));
 $secret2 = str_split(hash('sha256', $secret2));
 
+$dictionarySize = gmp_init(count($dictionary)); // 86
+$primitiveRoot = gmp_init(3); // primitive root for 86
+
 for ($i=0; $i<$passwordLength; $i++) {
     $char1 = $secret1[$i];
     $char2 = $secret2[$i];
 
-    $power = gmp_pow(
-        ord($char1),
-        ord($char2)
-    );
-
-    $code = gmp_powm(
-        gmp_init(3),
+    $code = (int) gmp_powm(
+        $primitiveRoot,
         gmp_pow(ord($char1), ord($char2)),
-        gmp_init(count($dictionary))
+        $dictionarySize
     );
 
-    $password[] = $dictionary[(int) $code];
+    $password[] = $dictionary[$code];
 }
 
 echo implode('', $password);
