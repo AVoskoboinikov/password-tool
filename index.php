@@ -1,8 +1,8 @@
 <?php
 
-$secret1 = 'vk.com';
-$secret2 = 'avoskoboinikov';
-$passwordLength = '32';
+$secret1 = null;
+$secret2 = null;
+$passwordLength = '12';
 
 $dictionary = [
     'Q','W','E','R','T','Y','U','I','O','P','A','S','D',
@@ -16,6 +16,15 @@ $dictionary = [
     '~','!','@','#','$','%','^','&','*','(',')','_','+',
     ',','.',':',';','?','[',']','<','>','{','}'
 ];
+
+$options = getopt('', ['s1:','s2:']);
+
+if (empty($options['s1']) || empty($options['s2'])) {
+    die('Provide secret words');
+}
+
+$secret1 = $options['s1'];
+$secret2 = $options['s2'];
 
 $password = [];
 $secret1 = str_split(hash('sha256', $secret1));
