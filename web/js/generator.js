@@ -1,3 +1,4 @@
+var hash_complexity = 420000;
 var password_length = 45;
 var dictionary = [
     'Q','W','E','R','T','Y','U','I','O','P','A','S','D',
@@ -19,8 +20,16 @@ function generateFancyPassword(secret_1, secret_2) {
         dictionary_size = dictionary.length,
         primitive_root = 2;
 
-    hashedSecret_1 = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(secret_1)).split('');
-    hashedSecret_2 = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(secret_2)).split('');
+    hashedSecret_1 = secret_1;
+    hashedSecret_2 = secret_2;
+
+    for (i=0; i<hash_complexity; i++) {
+        hashedSecret_1 = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(hashedSecret_1));
+        hashedSecret_2 = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(hashedSecret_2));
+    }
+
+    hashedSecret_1 = hashedSecret_1.split('');
+    hashedSecret_2 = hashedSecret_2.split('');
 
     secret_1 = secret_1.split('');
     secret_2 = secret_2.split('');
