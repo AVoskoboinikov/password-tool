@@ -2,7 +2,7 @@
 
 $secret1 = null;
 $secret2 = null;
-$passwordLength = '15';
+$passwordLength = 15;
 
 $dictionary = [
     'Q','W','E','R','T','Y','U','I','O','P','A','S','D',
