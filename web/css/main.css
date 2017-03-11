@@ -1,0 +1,21 @@
+body {
+    background: url("../images/seigaiha.png");
+}
+
+div.well{
+    height: 250px;
+}
+
+.absolute-center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.absolute-center.is-responsive {
+    width: 50%;
+    height: 60%;
+    min-width: 200px;
+    max-width: 500px;
+    padding: 40px;
+}

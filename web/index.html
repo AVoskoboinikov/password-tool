@@ -1,21 +1,49 @@
 <html>
     <head>
         <title>Fancy Password</title>
-        <script src="js/BigInteger.min.js"></script>
+
+        <script src="js/big-integer.min.js"></script>
         <script src="js/sjcl.js"></script>
         <script src="js/generator.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <form>
-            <input type="text" id="secret-1" name="secret-1"/>
-            <input type="text" id="secret-2" name="secret-2"/>
-
-            <br/>
-
-            <textarea name="password" id="password" cols="30" rows="10"></textarea>
-            <input type="button" value="Generate" id="generate-button"/>
-            <input type="text" id="result-counter" name="result-counter" value=""/>
-        </form>
+        <div class="container">
+            <div class="row">
+                <div class="absolute-center is-responsive">
+                    <div class="col-sm-12 col-md-10 col-md-offset-1">
+                        <form action="" id="loginForm">
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" id="secret-1" name="secret-1" placeholder="secret word #1"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" id="secret-2" name="secret-2" placeholder="secret word #2"/>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="show-passwords-checkbox"> Show secret words
+                                </label>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-resize-horizontal"></i></span>
+                                <input class="form-control" type="text" id="password-length" name="password-length" placeholder="" value="15"/>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-def btn-block" id="generate-button">Generate password</button>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="password" id="password" cols="30" rows="5"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="js/main.js"></script>
     </body>
