@@ -5,6 +5,7 @@
         <script src="js/big-integer.min.js"></script>
         <script src="js/sjcl.js"></script>
         <script src="js/generator.js"></script>
+        <script src="js/generator_v2.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -24,14 +25,21 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input class="form-control" type="password" id="secret-2" name="secret-2" placeholder="secret word #2"/>
                             </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="show-passwords-checkbox"> Show secret words
-                                </label>
-                            </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-resize-horizontal"></i></span>
-                                <input class="form-control" type="text" id="password-length" name="password-length" placeholder="" value="15"/>
+                                <input class="form-control" type="text" id="password-length" name="password-length" placeholder="" value="30"/>
+                            </div>
+                            <div class="col-sm-12 col-md-12">
+                                <div class="col-sm-8 col-md-8">
+                                    <label>
+                                        <input type="checkbox" id="show-passwords-checkbox"> Show secrets
+                                    </label>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <label>
+                                        <input type="checkbox" id="use-generator-v2"> Use v2
+                                    </label>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <button type="button" class="btn btn-def btn-block" id="generate-button">Generate password</button>

@@ -1,5 +1,9 @@
 body {
-    background: url("../images/seigaiha.png");
+    background: url("../images/fancy-pants.jpg");
+}
+
+label {
+    color: floralwhite;
 }
 
 div.well{
